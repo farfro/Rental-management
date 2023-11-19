@@ -7,7 +7,7 @@
 
 int main()
 {
-	red_black bulletin;
+	BST bulletin;
 	short_term short_obj;
 	school_year school_obj;
 	long_term long_obj;

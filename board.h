@@ -45,13 +45,13 @@ class node
 	      node * left;
 };
 
-//class red_black to be used to manage the node data structure
-class red_black
+//class BST to be used to manage the node data structure
+class BST
 {
 	public:
-	      red_black();			//default constructor
-	      red_black(const red_black &);	//copy constructor
-	      ~red_black();			//destructor
+	      BST();			//default constructor
+	      BST(const BST &);	//copy constructor
+	      ~BST();			//destructor
 	      void remove_all();		//function to remove all rental obj
 	      void display_all();		//function to display all rental obj
 	      //function to add rental obj
@@ -63,7 +63,7 @@ class red_black
 	      //if success, 0 otherwise	      
 	      bool retrieve(int, rental *&);
 	      //overloading the = operator
-	      red_black & operator = (const red_black &);
+	      BST & operator = (const BST &);
 	      //function to remove rental obj from
 	      //the tree, takes a int price from the
 	      //user

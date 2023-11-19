@@ -2,7 +2,7 @@
 
 //Name: Saimon Asghedom
 //course: CS202
-//file: in this file I'm going to implement the node class and the red_black class which
+//file: in this file I'm going to implement the node class and the BST class which
 //will contain the node class to create a data structure to manage
 
 //default constructor
@@ -191,26 +191,26 @@ void node::set_left(node * connect)
 	   left = connect;
 }
 //default constructor
-red_black::red_black()
+BST::BST()
 {
 	root = NULL;
 }
 //copy constructor
-red_black::red_black(const red_black & source)
+BST::BST(const BST & source)
 {
 	if(source.root)				//check if there is data and then call copy function
 	   copy_tree(root, source.root);
 }
 
 //destructor
-red_black::~red_black()
+BST::~BST()
 {
 	if(root)		//check if there is data then call remove all function
 	   remove_all(root);
 }
 
 //copy function that will copy the data structure
-void red_black::copy_tree(node * &root, node * o_root)
+void BST::copy_tree(node * &root, node * o_root)
 {
 	if(!o_root)
 	{
@@ -225,7 +225,7 @@ void red_black::copy_tree(node * &root, node * o_root)
 }
 
 //wrapper function that will remove all rental obj
-void red_black::remove_all() 
+void BST::remove_all() 
 {
 	if(!root) return;
 
@@ -233,7 +233,7 @@ void red_black::remove_all()
 }
 
 //recussive function for remove_all
-void red_black::remove_all(node * &root)
+void BST::remove_all(node * &root)
 {
 	if(!root) return;
 
@@ -243,7 +243,7 @@ void red_black::remove_all(node * &root)
 	root = NULL;
 }
 //wrapper function to display all rental obj
-void red_black::display_all()
+void BST::display_all()
 {
 	if(!root) return;
 
@@ -251,7 +251,7 @@ void red_black::display_all()
 }
 
 //recussive function for display_all
-void red_black::display_all(node * root)
+void BST::display_all(node * root)
 {
 	if(!root) return;
 
@@ -261,7 +261,7 @@ void red_black::display_all(node * root)
 }
 
 //function to add rental obj to the tree
-void red_black::add_request(rental & source)
+void BST::add_request(rental & source)
 {
 	if(!root)			//check if empty and then add the obj to new node
 	{				//set its color to black
@@ -272,7 +272,7 @@ void red_black::add_request(rental & source)
 }
 
 //recussive function of add_request
-void red_black::add_request(node * &root, rental & source)
+void BST::add_request(node * &root, rental & source)
 {
 	if(!root)			//add obj to new node and set the parent to the previous node
 	{				//chack if the previous node color is red if it is call function to fix
@@ -289,7 +289,7 @@ void red_black::add_request(node * &root, rental & source)
 
 //function to retrieve rental obj from the tree
 //using the price argument provided by the user
-bool red_black::retrieve(int price, rental *& data)
+bool BST::retrieve(int price, rental *& data)
 {
 	if(!root) return 0;
 
@@ -297,7 +297,7 @@ bool red_black::retrieve(int price, rental *& data)
 }
 
 //recurssive function of retrieve
-bool red_black::retrieve(node * root, int price, rental *& data)
+bool BST::retrieve(node * root, int price, rental *& data)
 {
 	if(!root) return 0;
 
@@ -312,8 +312,8 @@ bool red_black::retrieve(node * root, int price, rental *& data)
 		return retrieve(root->go_right(), price, data);
 }
 
-//overloading the assignment operator for red_black class
-red_black & red_black::operator = (const red_black & source)
+//overloading the assignment operator for BST class
+BST & BST::operator = (const BST & source)
 {
 	if(this == &source)
 		return *this;
@@ -327,7 +327,7 @@ red_black & red_black::operator = (const red_black & source)
 	return *this;
 }
 
-int red_black::remove(int price)
+int BST::remove(int price)
 {
    if(!root) return 0;			//return 0 if no data to remove
 
@@ -335,7 +335,7 @@ int red_black::remove(int price)
 }
 
 //recussive function to remove
-int red_black::remove(node * &root, int price)
+int BST::remove(node * &root, int price)
 {
    if(!root) return 0;			//return 0 if no match
 
@@ -380,7 +380,7 @@ int red_black::remove(node * &root, int price)
 
 }
 
-void red_black::remove_node(node * &root, node * &current)
+void BST::remove_node(node * &root, node * &current)
 {
        if(root->go_left() == NULL)                          //travese til current->left is NULL
        {
